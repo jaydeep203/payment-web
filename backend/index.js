@@ -11,7 +11,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use(dotenv());
+dotenv.config();
 
 app.use("/api/v1/", mainRouter);
 
