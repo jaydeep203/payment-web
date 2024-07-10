@@ -17,7 +17,7 @@ const SendMoney = () => {
             navigate("/signin");
         }
 
-        axios.get("http://localhost:3000/api/v1/user/me", {
+        axios.get("https://payment-web-84db.onrender.com/api/v1/user/me", {
             headers:{
                 "authorization" : "Bearer " + token 
             } 
@@ -29,7 +29,7 @@ const SendMoney = () => {
             }
         );
 
-    }, []);
+    }, [navigate]);
 
     return <div className="flex justify-center h-screen bg-gray-100">
         <div className="h-full flex flex-col justify-center">
@@ -50,7 +50,7 @@ const SendMoney = () => {
                     <div className="space-y-2">
                     <label
                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        for="amount"
+                        
                     >
                         Amount (in Rs)
                     </label>
@@ -65,7 +65,7 @@ const SendMoney = () => {
                     />
                     </div>
                     <button onClick={() => {
-                        axios.post("http://localhost:3000/api/v1/account/transfer", {
+                        axios.post("https://payment-web-84db.onrender.com/api/v1/account/transfer", {
                             to: id,
                             amount
                         }, {

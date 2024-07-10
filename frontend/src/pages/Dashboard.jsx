@@ -16,7 +16,7 @@ const Dashboard = () => {
             navigate("/signin");
         }
 
-        axios.get("http://localhost:3000/api/v1/user/me", {
+        axios.get("https://payment-web-84db.onrender.com/api/v1/user/me", {
             headers:{
                 "authorization" : "Bearer " + token 
             } 
@@ -28,14 +28,14 @@ const Dashboard = () => {
             }
         );
 
-        axios.get("http://localhost:3000/api/v1/account/balance", {
+        axios.get("https://payment-web-84db.onrender.com/api/v1/account/balance", {
             headers:{
                 "authorization": "Bearer "+token
             }
         }
         ).then(Response => setBalance(Response.data.balance));
 
-    },[]);
+    },[navigate]);
 
     return <div>
         <Appbar />

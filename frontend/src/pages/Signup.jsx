@@ -17,7 +17,7 @@ const Signup = () => {
     useEffect(() => {
       const token = localStorage.getItem("token");
       if(token){
-          axios.get("http://localhost:3000/api/v1/user/me", {
+          axios.get("https://payment-web-84db.onrender.com/api/v1/user/me", {
             headers:{
                 "authorization" : "Bearer " + token 
             } 
@@ -29,7 +29,7 @@ const Signup = () => {
             }
         );
       }
-    },[]);
+    },[navigate]);
 
   return (
     <div className="bg-slate-300 h-screen flex justify-center">
@@ -51,7 +51,7 @@ const Signup = () => {
         }} placeholder="123456" label={"Password"} />
         <div className="pt-4">
           <Button onClick={async () => {
-            const response = await axios.post("http://localhost:3000/api/v1/user/signup", {
+            const response = await axios.post("https://payment-web-84db.onrender.com/api/v1/user/signup", {
               username,
               firstName,
               lastName,

@@ -16,7 +16,7 @@ const Signin = () => {
 
       const token = localStorage.getItem("token");
       if(token){
-          axios.get("http://localhost:3000/api/v1/user/me", {
+          axios.get("https://payment-web-84db.onrender.com/api/v1/user/me", {
             headers:{
                 "authorization" : "Bearer " + token 
             } 
@@ -29,7 +29,7 @@ const Signin = () => {
         );
       }     
 
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="bg-slate-300 h-screen flex justify-center">
@@ -54,7 +54,7 @@ const Signin = () => {
         <div className="pt-4">
           <Button onClick={
             async() => {
-              const response = await axios.post("http://localhost:3000/api/v1/user/signin", {
+              const response = await axios.post("https://payment-web-84db.onrender.com/api/v1/user/signin", {
                 username,
                 password
               });
