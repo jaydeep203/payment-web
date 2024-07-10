@@ -3,6 +3,9 @@ const zod = require("zod");
 const jwt = require("jsonwebtoken");
 const {User} = require("../db");
 const { authMiddleware } = require("../middleware");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 
 const router = express.Router();

@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const { Account } = require("../db");
 const {authMiddleware} = require("../middleware");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 router.get("/balance", authMiddleware, async(req, res)=>{
     const account = await Account.findOne({
